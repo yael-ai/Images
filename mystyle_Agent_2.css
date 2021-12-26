@@ -1,0 +1,43 @@
+#header2 {
+    position: absolute;
+    color: rgba(40, 16, 196, 0.966);
+    font-size: 30px;
+    /* border: 3px solid #ad2134; */
+}
+
+#video2 {
+    position: absolute;
+    left: 10px;
+    width: 320px;
+    height: 200px;
+    /* border: 3px solid #ad2134; */
+}
+
+.button_secound_video {
+    position: absolute;
+    top: 250px;
+    /* border: 3px solid #fffb11; */
+}
+
+button:active {
+    background-color: red;
+}
+
+.SecoundChat {
+    position: absolute;
+    text-align: center;
+    top: 340px;
+    width: 600px;
+    height: 200px;
+    /* border: 3px solid #ad8821; */
+}
+
+.text_2 {
+    position: absolute;
+    text-align: center;
+    top: 350px;
+    left: 700px;
+    width: 500px;
+    height: 200px;
+    /* border: 3px solid #7a21ad; */
+}

@@ -1,0 +1,70 @@
+#header1 {
+    position: absolute;
+    color: rgba(40, 16, 196, 0.966);
+    font-size: 30px;
+    /* border: 3px solid #ad2134; */
+}
+
+#video1 {
+    position: absolute;
+    left: 10px;
+    width: 320px;
+    height: 200px;
+    /* border: 3px solid #ad2134; */
+}
+
+#header2 {
+    position: absolute;
+    top: 300px;
+    color: rgba(40, 16, 196, 0.966);
+    font-size: 30px;
+}
+
+#video2 {
+    position: absolute;
+    top: 310px;
+    left: 10px;
+    width: 320px;
+    height: 200px;
+    /* border: 3px solid #ad2134; */
+}
+
+#header3 {
+    position: absolute;
+    top: 600px;
+    color: rgba(40, 16, 196, 0.966);
+    font-size: 30px;
+}
+
+#video3 {
+    position: absolute;
+    top: 610px;
+    left: 10px;
+    width: 320px;
+    height: 200px;
+    /* border: 3px solid #ad2134; */
+}
+
+#header4 {
+    position: absolute;
+    top: 900px;
+    color: rgba(40, 16, 196, 0.966);
+    font-size: 30px;
+}
+
+#video4 {
+    position: absolute;
+    top: 910px;
+    left: 10px;
+    width: 320px;
+    height: 200px;
+    /* border: 3px solid #ad2134; */
+}
+
+#End {
+    position: absolute;
+    top: 1200px;
+    color: rgba(40, 16, 196, 0.966);
+    font-size: 30px;
+    /* border: 3px solid #7a21ad; */
+}
