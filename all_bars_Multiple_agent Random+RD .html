@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Fetch and Graph CSV</title>
+    <h1 id="header1">Agent 1 - Right Lane, Change Lane, High Speed</h1>
+    <h1 id="End"> End Of All Cases</h1>
+    <script src=https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js></script>
+
+</head>
+
+<body>
+
+    <!--Display the video 1-->
+    <div style="text-align:center">
+        <!-- <br><br> -->
+        <video id="video1" width="320" height="200" controls>
+            <source src = "Random - RightLane ChangeLane HighSpeed.mp4" type="video/mp4">
+             Your browser does not support the video tag.
+         </video>
+    </div>
+
+    <!-- end disolay video 1-->
+
+    <!-- Create butons to display chart-->
+    <div id="mychart" style="display:none;">
+        <div id="chart_div" style="width:900px; height: 610px;"></div>
+    </div>
+    <div class=button_first_video>
+        <button id="button1" onclick="chartIt(num_video = 1,case_number=1 ,time_stemp = 19,bar='bar'), goTo (num_video = 1,id = 'button1',sec = 1.312);">Case 1 </button>
+        <button id="button2" onclick="chartIt(num_video = 1,case_number=2,time_stemp = 54,bar='bar'), goTo (num_video = 1,id = 'button2',sec = 8.718);">Case 2 </button>
+        <button id="button3" onclick="chartIt(num_video = 1,case_number=3,time_stemp = 42,bar='bar'), goTo (num_video = 1,id = 'button3',sec = 12.035);">Case 3</button>
+        <button id="button4" onclick="chartIt(num_video = 1,case_number=4,time_stemp = 57,bar='bar'), goTo (num_video = 1,id = 'button4',sec = 20.218);">Case 4</button>
+        <button id="button5" onclick="chartIt(num_video = 1,case_number=5,time_stemp = 44,bar='bar'), goTo (num_video = 1,id = 'button5',sec = 25.489);">Case 5</button>
+        <button id="button6" onclick="chartIt(num_video = 1,case_number=6,time_stemp = 58,bar='bar'), goTo (num_video = 1,id = 'button6',sec = 30.936);">Case 6</button>
+        <button id="button7" onclick="chartIt(num_video = 1,case_number=7,time_stemp = 39,bar='bar'), goTo (num_video = 1,id = 'button7',sec = 35.667);">Case 7</button>
+        <button id="button8" onclick="chartIt(num_video = 1,case_number=8,time_stemp = 47,bar='bar'), goTo (num_video = 1,id = 'button8',sec = 41.384);">Case 8</button>
+    </div>
+
+    <div class="text_1">
+        <h1 id=video_1_case></h1>
+        <h1 id=introduction_1></h1>
+        <h1 id="action_1"></h1>
+    </div>
+
+    <!--Create the BAR graph-->
+    <div class='FisrtChat'>
+        <canvas id='bar'></canvas>
+    </div>
+
+    <h1 id="header2">Agent 2 - High Speed, Change Lane, Right Lane</h1>
+    <div style="text-align:center">
+
+        <video id="video2" controls>
+            <source src = "Random - highSpeed ChangeLane RightLane.mp4" type="video/mp4">
+             Your browser does not support the video tag.
+         </video>
+
+        <div class=button_secound_video>
+            <button id="button_1" onclick="chartIt(num_video = 2,case_number=1 ,time_stemp = 2,bar='bar_2'), goTo (num_video = 2,id = 'button_1',sec = 0.491);">Case 1 </button>
+            <button id="button_2" onclick="chartIt(num_video = 2,case_number=2,time_stemp = 12,bar='bar_2'), goTo (num_video = 2,id = 'button_2',sec = 4.350);">Case 2 </button>
+            <button id="button_3" onclick="chartIt(num_video = 2,case_number=3,time_stemp = 8,bar='bar_2'), goTo (num_video = 2,id = 'button_3',sec = 14.348);">Case 3</button>
+            <button id="button_4" onclick="chartIt(num_video = 2,case_number=4,time_stemp = 65,bar='bar_2'), goTo (num_video = 2,id = 'button_4',sec = 20.283);">Case 4</button>
+            <button id="button_5" onclick="chartIt(num_video = 2,case_number=5,time_stemp = 20,bar='bar_2'), goTo (num_video = 2,id = 'button_5',sec =26.202);">Case 5</button>
+            <button id="button_6" onclick="chartIt(num_video = 2,case_number=6,time_stemp = 8,bar='bar_2'), goTo (num_video = 2,id = 'button_6',sec = 30.415);">Case 6</button>
+            <button id="button_7" onclick="chartIt(num_video = 2,case_number=7,time_stemp = 11,bar='bar_2'), goTo (num_video = 2,id = 'button_7',sec =36.849);">Case 7</button>
+            <button id="button_8" onclick="chartIt(num_video = 2,case_number=8,time_stemp = 78,bar='bar_2'), goTo (num_video = 2,id = 'button_8',sec = 42.715);">Case 8</button>
+        </div>
+
+        <div class="text_2">
+            <h1 id=video_2_case></h1>
+            <h1 id=introduction_2></h1>
+            <h1 id="action_2"></h1>
+        </div>
+
+        <!--Create the BAR graph 3 -->
+        <div class='SecoundChat'>
+            <canvas id='bar_2'></canvas>
+        </div>
+
+
+
+        <h1 id="header3">Agent 3 - Change Lane, Right Lane, High Speed</h1>
+        <div style="text-align:center">
+
+            <video id="video3" controls>
+            <source src = "Random - ChangeLane RightLane highSpeed_3.mp4" type="video/mp4">
+             Your browser does not support the video tag.
+         </video>
+
+            <div class=button_third_video>
+                <button id="button__1" onclick="chartIt(num_video = 3,case_number=1,time_stemp =63,bar='bar_3'), goTo (num_video = 3,id = 'button__1', sec = 4.170);">Case 1 </button>
+                <button id="button__2" onclick="chartIt(num_video = 3,case_number=2,time_stemp =25,bar='bar_3'),  goTo (num_video = 3,id = 'button__2', sec = 7.300);">Case 2 </button>
+                <button id="button__3" onclick="chartIt(num_video = 3,case_number=3,time_stemp = 1,bar='bar_3'), goTo (num_video = 3,id = 'button__3', sec = 12.201);">Case 3</button>
+                <button id="button__4" onclick="chartIt(num_video = 3,case_number=4,time_stemp = 47,bar='bar_3'), goTo (num_video = 3,id = 'button__4',sec = 21.049);">Case 4</button>
+                <button id="button__5" onclick="chartIt(num_video = 3,case_number=5,time_stemp = 28,bar='bar_3'), goTo (num_video = 3,id = 'button__5',sec =25.860);">Case 5</button>
+                <button id="button__6" onclick="chartIt(num_video = 3,case_number=6,time_stemp = 28,bar='bar_3'), goTo (num_video = 3,id = 'button__6',sec = 29.9173);">Case 6</button>
+                <button id="button__7" onclick="chartIt(num_video = 3,case_number=7,time_stemp = 11,bar='bar_3'), goTo (num_video = 3,id = 'button__7',sec = 35.800);">Case 7</button>
+                <button id="button__8" onclick="chartIt(num_video = 3,case_number=8,time_stemp = 56,bar='bar_3'), goTo (num_video = 3,id = 'button__8',sec = 42.796);">Case 8</button>
+            </div>
+
+            <div class="text_3">
+                <h1 id=video_3_case></h1>
+                <h1 id=introduction_3></h1>
+                <h1 id="action_3"></h1>
+            </div>
+
+            <!--Create the BAR graph 3-->
+            <div class='ThirdChat'>
+                <canvas id='bar_3'></canvas>
+            </div>
+
+
+            <h1 id="header4">Agent 4 - Change Lane</h1>
+            <div style="text-align:center">
+
+                <video id="video4" controls>
+                <source src = "Random - Change Lane.mp4" type="video/mp4">
+                 Your browser does not support the video tag.
+             </video>
+
+                <div class=button_fourth_video>
+                    <button id="button___1" onclick="chartIt(num_video = 4,case_number=1,time_stemp = 29,bar='bar_4'), goTo (num_video = 4,id = 'button___1',sec = 2.147);">Case 1 </button>
+                    <button id="button___2" onclick="chartIt(num_video = 4,case_number=2,time_stemp = 6, bar='bar_4'),  goTo (num_video = 4,id = 'button___2',sec = 7.083);">Case 2 </button>
+                    <button id="button___3" onclick="chartIt(num_video = 4,case_number=3,time_stemp = 47,bar='bar_4'), goTo (num_video = 4,id = 'button___3',sec = 16.100);">Case 3</button>
+                    <button id="button___4" onclick="chartIt(num_video = 4,case_number=4,time_stemp = 50,bar='bar_4'), goTo (num_video = 4,id = 'button___4',sec = 22.250);">Case 4</button>
+                    <button id="button___5" onclick="chartIt(num_video = 4,case_number=5,time_stemp = 34,bar='bar_4'), goTo (num_video = 4,id = 'button___5',sec = 37.800);">Case 5</button>
+                    <button id="button___6" onclick="chartIt(num_video = 4,case_number=6,time_stemp = 0,bar='bar_4'), goTo (num_video = 4,id = 'button___6',sec = 31.852);">Case 6</button>
+                    <button id="button___7" onclick="chartIt(num_video = 4,case_number=7,time_stemp = 55,bar='bar_4'), goTo (num_video = 4,id = 'button___7',sec = 40.559);">Case 7</button>
+                    <button id="button___8" onclick="chartIt(num_video = 4,case_number=8,time_stemp = 14,bar='bar_4'), goTo (num_video = 4,id = 'button___8',sec = 43.300);">Case 8</button>
+                </div>
+
+                <div class="text_4">
+                    <h1 id=video_4_case></h1>
+                    <h1 id=introduction_4></h1>
+                    <h1 id="action_4"></h1>
+                </div>
+
+                <!--Create the BAR graph-->
+                <div class='FourthChat'>
+                    <canvas id='bar_4'></canvas>
+                </div>
+
+
+
+
+</body>
+<!-- Starting the js code-->
+<script>
+    function goTo(num_video, id, sec) {
+        if (num_video == 1) {
+            var jumplink = document.getElementById(id),
+                myvideo = document.getElementById('video1');
+            event.preventDefault();
+            myvideo.play();
+            myvideo.pause();
+            myvideo.currentTime = sec;
+            myvideo.pause();
+        }
+        if (num_video == 2) {
+            var jumplink = document.getElementById(id),
+                myvideo = document.getElementById('video2');
+            event.preventDefault();
+            myvideo.play();
+            myvideo.pause();
+            myvideo.currentTime = sec;
+            myvideo.pause();
+        }
+        if (num_video == 3) {
+            var jumplink = document.getElementById(id),
+                myvideo = document.getElementById('video3');
+            event.preventDefault();
+            myvideo.play();
+            myvideo.pause();
+            myvideo.currentTime = sec;
+            myvideo.pause();
+        }
+        if (num_video == 4) {
+            var jumplink = document.getElementById(id),
+                myvideo = document.getElementById('video4');
+            event.preventDefault();
+            myvideo.play();
+            myvideo.pause();
+            myvideo.currentTime = sec;
+            myvideo.pause();
+        }
+
+
+    }
+    async function chartIt(num_video, case_number, time_stemp, bar) {
+
+        //var sec = myVideo.currentTime
+        const data = await getData(num_video, case_number, time_stemp);
+        const ctx = document.getElementById(bar).getContext('2d');
+        const myChart = new Chart(ctx, {
+
+            type: 'bar',
+            data: {
+                labels: data.xs_action,
+                datasets: [{
+                        label: ['Right Lane'],
+                        data: data.ys_H1a,
+                        backgroundColor: ['rgba(255, 99, 132, 0.2)', ],
+                        borderColor: ['rgba(255, 99, 132, 1)', ],
+                        borderWidth: 1,
+                        stack: 'Stack 0',
+                    },
+
+                    {
+                        label: ['High Speed'],
+                        data: data.ys_H2a,
+                        backgroundColor: ['rgba(54, 162, 235, 0.2)', ],
+                        borderColor: ['rgba(54, 162, 235, 1)', ],
+                        borderWidth: 1,
+                        stack: 'Stack 0',
+                    },
+
+                    {
+                        label: ['Change Lane'],
+                        data: data.ys_H3a,
+                        backgroundColor: ['rgba(255, 206, 86, 0.2)', ],
+                        borderColor: ['rgba(255, 206, 86, 1)', ],
+                        borderWidth: 1,
+                        stack: 'Stack 0',
+                    },
+
+                ],
+
+            },
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                        },
+
+                        ticks: {
+                            color: 'blue',
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false,
+                        },
+                        ticks: {
+                            stepSize: 0.5,
+                        }
+                    }
+                }
+            }
+
+        });
+
+        const all_buttons1 = ['button1', 'button2', 'button3', 'button4', 'button5', 'button6', 'button7', 'button8']
+        for (let i = 0; i < all_buttons1.length; i++) {
+            id_of_button = all_buttons1[i]
+            console.log(id_of_button)
+            document.getElementById(id_of_button).addEventListener('click', e => {
+                myChart.destroy();
+            });
+        }
+
+        var all_buttons2 = ['button_1', 'button_2', 'button_3', 'button_4', 'button_5', 'button_6', 'button_7', 'button_8']
+        for (let i = 0; i < all_buttons2.length; i++) {
+            id_of_button = all_buttons2[i]
+            document.getElementById(id_of_button).addEventListener('click', e => {
+                myChart.destroy();
+            });
+        }
+
+        var all_buttons3 = ['button__1', 'button__2', 'button__3', 'button__4', 'button__5', 'button__6', 'button__7', 'button__8']
+        for (let i = 0; i < all_buttons3.length; i++) {
+            id_of_button = all_buttons3[i]
+            document.getElementById(id_of_button).addEventListener('click', e => {
+                myChart.destroy();
+            });
+        }
+
+        var all_buttons4 = ['button___1', 'button___2', 'button___3', 'button___4', 'button___5', 'button___6', 'button___7', 'button___8']
+        for (let i = 0; i < all_buttons4.length; i++) {
+            id_of_button = all_buttons4[i]
+            document.getElementById(id_of_button).addEventListener('click', e => {
+                myChart.destroy();
+            });
+        }
+
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        video1.addEventListener("timeupdate ", function() {
+            if (video1.currentTime >= endtimeoffset) {
+                video1.pause();
+            }
+        }, false);
+
+
+        // time_stemp = the time in wich the action changed!
+        async function getData(num_video, case_number, time_stemp) {
+            // var x = document.getElementById("secound ").value;
+            const xs_action = [];
+            //const ys_2_secound = [];
+            const max_value = [];
+            const ys_H1a = [];
+            const ys_H2a = [];
+            const ys_H3a = [];
+            if (num_video == 1) {
+                if (case_number == 1) {
+                    var response = await fetch('random_df_episode_final_48.csv');
+                }
+                if (case_number == 2) {
+                    var response = await fetch('random_df_episode_final_1119.csv');
+                }
+                if (case_number == 3) {
+                    var response = await fetch('random_df_episode_final_631.csv');
+                }
+                if (case_number == 4) {
+                    var response = await fetch('random_df_episode_final_574.csv');
+                }
+                if (case_number == 5) {
+                    var response = await fetch('random_df_episode_final_1217.csv');
+                }
+                if (case_number == 6) {
+                    var response = await fetch('random_df_episode_final_617.csv');
+                }
+                if (case_number == 7) {
+                    var response = await fetch('random_df_episode_final_1605.csv');
+                }
+                if (case_number == 8) {
+                    var response = await fetch('random_df_episode_final_12.csv');
+                }
+            }
+
+            if (num_video == 2) {
+                if (case_number == 1) {
+                    var response = await fetch('2random_df_episode_final_1_1399.csv');
+                }
+                if (case_number == 2) {
+                    var response = await fetch('2random_df_episode_final_2_588.csv');
+                }
+                if (case_number == 3) {
+                    var response = await fetch('2random_df_episode_final_3_534.csv');
+                }
+                if (case_number == 4) {
+                    var response = await fetch('2random_df_episode_final_4_1506.csv');
+                }
+                if (case_number == 5) {
+                    var response = await fetch('2random_df_episode_final_5_1789.csv');
+                }
+                if (case_number == 6) {
+                    var response = await fetch('2random_df_episode_final_6_1690.csv');
+                }
+                if (case_number == 7) {
+                    var response = await fetch('2random_df_episode_final_7_62.csv');
+                }
+                if (case_number == 8) {
+                    var response = await fetch('2random_df_episode_final_8_782.csv');
+                }
+
+            }
+
+            if (num_video == 3) {
+                if (case_number == 1) {
+                    var response = await fetch('3random_df_episode_final_813.csv');
+                }
+                if (case_number == 2) {
+                    var response = await fetch('3random_df_episode_final_1429.csv');
+                }
+                if (case_number == 3) {
+                    var response = await fetch('3random_df_episode_final_722.csv');
+                }
+                if (case_number == 4) {
+                    var response = await fetch('3random_df_episode_final_1433.csv');
+                }
+                if (case_number == 5) {
+                    var response = await fetch('3random_df_episode_final_1653.csv');
+                }
+                if (case_number == 6) {
+                    var response = await fetch('3random_df_episode_final_85.csv');
+                }
+                if (case_number == 7) {
+                    var response = await fetch('3random_df_episode_final_1306.csv');
+                }
+                if (case_number == 8) {
+                    var response = await fetch('3random_df_episode_final_1390.csv');
+                }
+
+            }
+
+            if (num_video == 4) {
+                if (case_number == 1) {
+                    var response = await fetch('4random_df_episode_final_1_147.csv');
+                }
+                if (case_number == 2) {
+                    var response = await fetch('4random_df_episode_final_2_695.csv');
+                }
+                if (case_number == 3) {
+                    var response = await fetch('4random_df_episode_final_3_914.csv');
+                }
+                if (case_number == 4) {
+                    var response = await fetch('4random_df_episode_final_4_746.csv');
+                }
+                if (case_number == 5) {
+                    var response = await fetch('4random_df_episode_final_5_852.csv');
+                }
+                if (case_number == 6) {
+                    var response = await fetch('4random_df_episode_final_6_799.csv');
+                }
+                if (case_number == 7) {
+                    var response = await fetch('4random_df_episode_final_7_288.csv');
+                }
+                if (case_number == 8) {
+                    var response = await fetch('4random_df_episode_final_8_435.csv');
+                }
+
+            }
+
+
+
+
+            const data = await response.text();
+            const row = data.split('\n').slice(1);
+            row.forEach(elt => {
+                const row = elt.split(',');
+                const time = row[0];
+
+                if (time == time_stemp) {
+                    // for the next row:
+                    H1_Q1 = row[1];
+                    H1_Q2 = row[2];
+                    H1_Q3 = row[3];
+                    H1_Q4 = row[4];
+                    H1_Q5 = row[5];
+                    H2_Q1 = row[6];
+                    H2_Q2 = row[7];
+                    H2_Q3 = row[8];
+                    H2_Q4 = row[9];
+                    H2_Q5 = row[10];
+                    H3_Q1 = row[11];
+                    H3_Q2 = row[12];
+                    H3_Q3 = row[14];
+                    H3_Q4 = row[14];
+                    H3_Q5 = row[15];
+
+                    choosen_action = parseInt(row[22]);
+                    // var text_choosen_Action = "no"
+
+                    if (choosen_action == 1) {
+                        text_choosen_Action = "left lane ";
+                    }
+                    if (choosen_action == 2) {
+                        text_choosen_Action = "idle ";
+                    }
+                    if (choosen_action == 3) {
+                        text_choosen_Action = "right lane ";
+                    }
+                    if (choosen_action == 4) {
+                        text_choosen_Action = "faster ";
+                    }
+                    if (choosen_action == 5) {
+                        text_choosen_Action = "slower ";
+                    }
+                    console.log(text_choosen_Action)
+                    if (num_video == 1) {
+                        document.getElementById('video_1_case').innerHTML = "Case " + case_number;
+                        document.getElementById('introduction_1').innerHTML = "The choosen action is: ";
+                        document.getElementById('action_1').innerHTML = text_choosen_Action;
+                    }
+                    if (num_video == 2) {
+                        document.getElementById('video_2_case').innerHTML = "Case " + case_number;
+                        document.getElementById('introduction_2').innerHTML = "The choosen action is: ";
+                        document.getElementById('action_2').innerHTML = text_choosen_Action;
+                    }
+
+                    if (num_video == 3) {
+                        document.getElementById('video_3_case').innerHTML = "Case " + case_number;
+                        document.getElementById('introduction_3').innerHTML = "The choosen action is: ";
+                        document.getElementById('action_3').innerHTML = text_choosen_Action;
+                    }
+                    if (num_video == 4) {
+                        document.getElementById('video_4_case').innerHTML = "Case " + case_number;
+                        document.getElementById('introduction_4').innerHTML = "The choosen action is: ";
+                        document.getElementById('action_4').innerHTML = text_choosen_Action;
+                    }
+
+                    xs_action.push("left lane ", "idle ", "right lane ", "faster ", "slower ");
+                    ys_H1a.push(H1_Q1, H1_Q2, H1_Q3, H1_Q4, H1_Q5)
+                    ys_H2a.push(H2_Q1, H2_Q2, H2_Q3, H2_Q4, H2_Q5)
+                    ys_H3a.push(H3_Q1, H3_Q2, H3_Q3, H3_Q4, H3_Q5)
+                    max_value.push(choosen_action)
+
+                }
+
+
+
+            });
+            return {
+                max_value,
+                xs_action,
+                ys_H1a,
+                ys_H2a,
+                ys_H3a
+            };
+        }
+    }
+</script>
+
+
+</html>
